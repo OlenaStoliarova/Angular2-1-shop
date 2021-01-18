@@ -27,4 +27,7 @@ export class FirstComponentComponent implements OnInit {
       ];
   }
 
+  onBuy(item: Product) {
+    console.log(item.name + ' was added to cart');
+  }
 }

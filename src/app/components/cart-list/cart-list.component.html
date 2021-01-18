@@ -1,0 +1,4 @@
+<div class="container-fluid">
+  <div align="center" *ngIf="cartItems.length == 0; else elseBlock">you cart is empty</div>
+  <ng-template #elseBlock>There are {{cartItems.length}} items in your cart</ng-template>
+</div>

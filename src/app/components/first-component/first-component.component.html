@@ -1,6 +1,29 @@
-<h1>
-  Welcome to {{shopName}}! A place where you can buy everything you need!
-</h1>
-<div *ngFor="let curProduct of testProductList; let i = index;">
-  {{i+1}}.{{curProduct.name}}
+<div class="container-fluid">
+  <h1 align="center">
+    Welcome to {{shopName}}! A place where you can buy everything you need!
+  </h1>
+
+  <div class="table-responsive">
+    <table class="table table-condensed table-bordered table-hover">
+      <thead>
+      <tr class="table-primary">
+        <th>Product</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let curProduct of testProductList; let i = index;">
+        <td>
+          <h5>{{curProduct.name}}</h5>
+          <p>{{curProduct.description}}</p>
+        </td>
+        <td>{{curProduct.category}}</td>
+        <td>{{curProduct.price}}</td>
+        <td><button (click)="onBuy(curProduct)">Buy</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

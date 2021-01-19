@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-condensed table-bordered table-hover">
+      <thead>
+      <tr class="table-primary">
+        <th>Product</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let curProduct of products">
+        <td>
+          <h5>{{curProduct.name}}</h5>
+          <p>{{curProduct.description}}</p>
+        </td>
+        <td>{{curProduct.category}}</td>
+        <td>{{curProduct.price}}</td>
+        <td><button (click)="onBuy(curProduct)">Buy</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

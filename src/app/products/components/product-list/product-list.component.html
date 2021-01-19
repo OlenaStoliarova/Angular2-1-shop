@@ -1,8 +1,4 @@
 <div class="container-fluid">
-  <h1 align="center">
-    Welcome to {{shopName}}! A place where you can buy everything you need!
-  </h1>
-
   <div class="table-responsive">
     <table class="table table-condensed table-bordered table-hover">
       <thead>
@@ -14,7 +10,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let curProduct of testProductList; let i = index;">
+      <tr *ngFor="let curProduct of products">
         <td>
           <h5>{{curProduct.name}}</h5>
           <p>{{curProduct.description}}</p>

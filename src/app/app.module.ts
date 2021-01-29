@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CartListComponent } from './cart/components/cart-list/cart-list.component';
-import { ProductListComponent } from './products/components/product-list/product-list.component';
+import { ProductsModule } from './products/products.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CartListComponent,
-    ProductListComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ProductsModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

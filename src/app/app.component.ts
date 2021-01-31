@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 import { Product } from './products/models/product.model';
 
@@ -7,7 +7,13 @@ import { Product } from './products/models/product.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  @ViewChild('appTitle') titleField: ElementRef<HTMLElement>;
+
   title = 'shop';
   shopName = 'Happy Birds';
+
+  ngAfterViewInit() {
+    this.titleField.nativeElement.textContent = 'Welcome to ' + this.shopName + '! A place where you can buy everything you need!';
+  }
 }

@@ -8,13 +8,13 @@ import { Product } from '../../models/product.model';
 })
 export class ProductComponent {
   @Input() product: Product;
-  @Output() addProduct: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() addProductEvent: EventEmitter<Product> = new EventEmitter<Product>();
 
   constructor() { }
 
-  onBuy(product: Product): void {
-    console.log('add ' + product.name + ' to cart');
-    this.addProduct.emit(product);
+  onBuy(): void {
+    console.log('add ' + this.product.name + ' to cart');
+    this.addProductEvent.emit(this.product);
   }
 
 }

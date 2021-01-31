@@ -6,6 +6,6 @@
     <h5 class="col-1"></h5>
   </div>
   <div class="card-body" *ngFor="let curProduct of products">
-    <app-product [product]="curProduct" (addProduct)="onBuy($event)"></app-product>
+    <app-product [product]="curProduct" (addProductEvent)="onBuy($event)"></app-product>
   </div>  
 </div>

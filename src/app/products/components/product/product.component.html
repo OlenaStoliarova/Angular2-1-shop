@@ -8,7 +8,7 @@
   <div class="col-1">
     <button [class]="product.isAvailable ? 'btn btn-primary' : 'btn btn-secondary'"
             [disabled]="product.isAvailable ? null : 'disabled'"
-            (click)="onBuy(product)">
+            (click)="onBuy()">
         Buy
     </button>
   </div>

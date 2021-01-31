@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-5">
+    {{item.name}}  
+  </div>
+  <div class="col-2">{{item.price}}</div>  
+  <div class="col-3">
+    <button class="btn btn-secondary btn-sm" 
+            [disabled]="item.count > 1 ? null : 'disabled'"
+            (click)="onLess()">-</button>
+    {{item.count}}
+    <button class="btn btn-secondary btn-sm" (click)="onMore()">+</button>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-secondary btn-sm" (click)="onRemove()">Remove</button>
+  </div>
+</div>

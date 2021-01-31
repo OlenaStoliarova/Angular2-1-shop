@@ -27,7 +27,27 @@ export class CartListComponent implements OnInit, OnDestroy {
     this.subscriptionOnCartServiceChannel.unsubscribe();
   }
 
-  trackByItems(index: number, item: CartItem): number {
-    return item.id;
+  onPlusItem(itemId: number) {
+    this.cartService.incrementItem(itemId);
+  }
+  
+  onMinusItem(itemId: number) {
+    this.cartService.decrementItem(itemId);
+  }
+
+  onRemoveItem(itemId: number) {
+    this.cartService.removeItem(itemId);
+  }
+
+  getTotalQuantity(): number {
+    return this.cartService.getTotalQuantity();
+  }
+
+  getTotalAmount(): string {
+    return this.cartService.getTotalAmount().toFixed(2);
+  }
+
+  trackByItems(index: number, item: CartItem): string {
+    return item.id + ':' + item.count;
   }
 }

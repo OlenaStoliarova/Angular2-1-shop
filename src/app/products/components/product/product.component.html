@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" [ngClass]="{'text-muted': !product.isAvailable}">
   <div class="col-6">
     <h5>{{product.name}}</h5>
     <p>{{product.description}}</p>

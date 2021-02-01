@@ -1,0 +1,15 @@
+<div class="row" [ngClass]="{'text-muted': !product.isAvailable}">
+  <div class="col-6">
+    <h5>{{product.name}}</h5>
+    <p>{{product.description}}</p>
+  </div>
+  <div class="col-3">{{product.category}}</div>
+  <div class="col-2">{{product.price}}</div>
+  <div class="col-1">
+    <button [class]="product.isAvailable ? 'btn btn-primary' : 'btn btn-secondary'"
+            [disabled]="product.isAvailable ? null : 'disabled'"
+            (click)="onBuy()">
+        Buy
+    </button>
+  </div>
+</div>

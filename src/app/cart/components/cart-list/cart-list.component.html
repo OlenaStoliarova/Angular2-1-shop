@@ -1,16 +1,13 @@
-<div align="center" class="container-fluid">
+<div align="center" class="container w-50 bg-dark text-white">
   <div *ngIf="cart.length == 0; else elseBlock">you cart is empty</div>
-  <ng-template #elseBlock>There are {{cart.length}} items in your cart
-    <div class="container-fluid">
-      <div class="table-responsive">
-        <table class="table table-condensed table-bordered table-hover">
-          <tbody>
-          <tr *ngFor="let item of cart; trackBy: trackByItems">
-            <td>{{item.name}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <ng-template #elseBlock>
+    There is/are {{ getTotalQuantity() }} items in your cart for total price of {{ getTotalAmount() }} UAH
+    <div *ngFor="let curItem of cart; trackBy: trackByItems">
+      <app-cart-item [item]="curItem"
+                     (incrementItem)="onPlusItem($event)"
+                     (decrementItem)="onMinusItem($event)"
+                     (removeItem)="onRemoveItem($event)">
+      </app-cart-item>
+    </div>    
   </ng-template>
 </div>

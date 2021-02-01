@@ -1,14 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <img class="img-responsive" src="assets/images/top.jpg">
-  <h1>
-    Welcome to {{shopName}}! A place where you can buy everything you need!
-  </h1>
+  <h1  #appTitle></h1>
 </div>
-<app-cart-list
-        [cart]="cartItems">
-</app-cart-list>
-
-<app-product-list
-        (addToCart)="onAddToCart($event)">
-</app-product-list>
+<app-cart-list></app-cart-list>
+<app-product-list></app-product-list>

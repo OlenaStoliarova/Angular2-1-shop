@@ -1,25 +1,11 @@
-<div class="container-fluid">
-  <div class="table-responsive">
-    <table class="table table-condensed table-bordered table-hover">
-      <thead>
-      <tr class="table-primary">
-        <th>Product</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let curProduct of products">
-        <td>
-          <h5>{{curProduct.name}}</h5>
-          <p>{{curProduct.description}}</p>
-        </td>
-        <td>{{curProduct.category}}</td>
-        <td>{{curProduct.price}}</td>
-        <td><button (click)="onBuy(curProduct)">Buy</button></td>
-      </tr>
-      </tbody>
-    </table>
+<div class="container-fluid card">
+  <div class="row card-header">
+    <h5 class="col-6">Product</h5>
+    <h5 class="col-3">Category</h5>
+    <h5 class="col-2">Price</h5>
+    <h5 class="col-1"></h5>
   </div>
+  <div class="card-body" *ngFor="let curProduct of products">
+    <app-product [product]="curProduct" (addProductEvent)="onBuy($event)"></app-product>
+  </div>  
 </div>

@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onBuy(product: Product): void {
-    console.log('ProductListComponent onBuy');    
+    console.log('ProductListComponent onBuy');
     this.cartService.addItem(new CartItem(product.id, product.name, product.price, 1));
   }
 }

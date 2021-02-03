@@ -9,7 +9,7 @@ import { CartItem } from '../../models/cart-item.model';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css']
 })
-export class CartListComponent implements OnInit, OnDestroy { 
+export class CartListComponent implements OnInit, OnDestroy {
   cart: Array<CartItem> = [];
 
   private subscriptionOnCartServiceChannel: Subscription;
@@ -19,8 +19,8 @@ export class CartListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscriptionOnCartServiceChannel = this.cartService.cart$.subscribe( 
-      data => this.cart = data);    
+    this.subscriptionOnCartServiceChannel = this.cartService.cart$.subscribe(
+      data => this.cart = data);
   }
 
   ngOnDestroy() {
@@ -30,7 +30,7 @@ export class CartListComponent implements OnInit, OnDestroy {
   onPlusItem(itemId: number) {
     this.cartService.incrementItem(itemId);
   }
-  
+
   onMinusItem(itemId: number) {
     this.cartService.decrementItem(itemId);
   }

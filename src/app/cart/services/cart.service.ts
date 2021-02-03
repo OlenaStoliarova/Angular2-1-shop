@@ -16,7 +16,7 @@ export class CartService {
 
   addItem(item: CartItem): void {
     console.log(this.cartItems);
-    if(this.cartItems.has(item.id)) {
+    if (this.cartItems.has(item.id)) {
         const existingItem = this.cartItems.get(item.id);
         existingItem.count++;
     } else {
@@ -26,7 +26,7 @@ export class CartService {
   }
 
   incrementItem(itemId: number): void {
-    if(this.cartItems.has(itemId)) {
+    if (this.cartItems.has(itemId)) {
       const existingItem = this.cartItems.get(itemId);
       existingItem.count++;
     }
@@ -34,10 +34,10 @@ export class CartService {
   }
 
   decrementItem(itemId: number): void {
-    if(this.cartItems.has(itemId)) {
+    if (this.cartItems.has(itemId)) {
       const existingItem = this.cartItems.get(itemId);
       existingItem.count--;
-      if(existingItem.count < 1) {
+      if (existingItem.count < 1) {
         this.cartItems.delete(itemId);
       }
     }

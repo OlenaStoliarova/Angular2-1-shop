@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
+import { FirstComponent } from './components/first/first.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    FirstComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    FirstComponent
   ]
 })
 export class ProductsModule { }

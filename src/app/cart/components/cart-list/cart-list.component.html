@@ -1,7 +1,7 @@
 <div align="center" class="container w-50 bg-dark text-white">
   <div *ngIf="isEmptyCart(); else elseBlock">you cart is empty</div>
   <ng-template #elseBlock>
-    There is/are {{ getTotalQuantity() }} items in your cart for total price of {{ getTotalAmount() }} UAH
+    There is/are {{ getTotalQuantity() }} items in your cart for total price of <span appZoom="200%">{{ getTotalAmount() }}</span> UAH
     <div *ngFor="let curItem of cart; trackBy: trackByItems">
       <app-cart-item [item]="curItem"
                      (incrementItem)="onPlusItem($event)"

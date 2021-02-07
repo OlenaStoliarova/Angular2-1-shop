@@ -11,6 +11,8 @@ import { CartItem } from '../../models/cart-item.model';
 })
 export class CartListComponent implements OnInit, OnDestroy { 
   cart: Array<CartItem> = [];
+  orderByKey = 'name';
+  isAsc = true;
 
   private subscriptionOnCartServiceChannel: Subscription;
 

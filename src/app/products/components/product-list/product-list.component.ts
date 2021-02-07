@@ -4,6 +4,7 @@ import { Product } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
 import { CartService } from 'src/app/cart/services/cart.service';
 import { CartItem } from 'src/app/cart/models/cart-item.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +12,7 @@ import { CartItem } from 'src/app/cart/models/cart-item.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: Array<Product>;
+  products: Observable<Product[]>;
 
   constructor(
     private productsService: ProductsService,

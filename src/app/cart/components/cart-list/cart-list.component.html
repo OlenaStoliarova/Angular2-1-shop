@@ -1,8 +1,21 @@
 <div align="center" class="container w-50 bg-dark text-white">
   <div *ngIf="isEmptyCart(); else elseBlock">you cart is empty</div>
   <ng-template #elseBlock>
-    There is/are {{ getTotalQuantity() }} items in your cart for total price of <span appZoom="200%">{{ getTotalAmount() }}</span> UAH
-    <div *ngFor="let curItem of cart; trackBy: trackByItems">
+    There is/are {{ getTotalQuantity() }} items in your cart for total price of 
+    <span appZoom="200%">{{ getTotalAmount() | currency:'UAH':'':'1.2-2':'uk-UA' }}</span> UAH
+    <div class="row">
+      <div class="col-6"></div>
+      <div class="col-6 float-right">Sort by:
+      <select [(ngModel)]="orderByKey">
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+        <option value="count">Quantity</option>
+      </select>
+      <input type="checkbox" id="ascCb" [(ngModel)]="isAsc"/>
+      <label for="ascCb">Ascending</label>
+      </div>
+    </div>
+    <div *ngFor="let curItem of cart | orderBy:orderByKey:isAsc ; trackBy: trackByItems">
       <app-cart-item [item]="curItem"
                      (incrementItem)="onPlusItem($event)"
                      (decrementItem)="onMinusItem($event)"

@@ -3,8 +3,8 @@
     <h5>{{product.name}}</h5>
     <p>{{product.description}}</p>
   </div>
-  <div class="col-3">{{product.category}}</div>
-  <div appZoom="x-large" class="col-2">{{product.price}}</div>
+  <div class="col-3">{{ product.category | uppercase }}</div>
+  <div appZoom="x-large" class="col-2">{{product.price | currency:'UAH':'':'1.2-2':'uk-UA' }}</div>
   <div class="col-1">
     <button [class]="product.isAvailable ? 'btn btn-primary' : 'btn btn-secondary'"
             [disabled]="product.isAvailable ? null : 'disabled'"

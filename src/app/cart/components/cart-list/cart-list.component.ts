@@ -28,15 +28,19 @@ export class CartListComponent implements OnInit, OnDestroy {
   }
 
   onPlusItem(itemId: number) {
-    this.cartService.incrementItem(itemId);
+    this.cartService.incrementQuantity(itemId);
   }
   
   onMinusItem(itemId: number) {
-    this.cartService.decrementItem(itemId);
+    this.cartService.decrementQuantity(itemId);
   }
 
   onRemoveItem(itemId: number) {
     this.cartService.removeItem(itemId);
+  }
+
+  isEmptyCart(): boolean {
+    return this.cartService.isEmptyCart();
   }
 
   getTotalQuantity(): number {
@@ -44,7 +48,7 @@ export class CartListComponent implements OnInit, OnDestroy {
   }
 
   getTotalAmount(): string {
-    return this.cartService.getTotalAmount().toFixed(2);
+    return this.cartService.getTotalSum().toFixed(2);
   }
 
   trackByItems(index: number, item: CartItem): string {

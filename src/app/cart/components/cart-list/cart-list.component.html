@@ -1,5 +1,5 @@
 <div align="center" class="container w-50 bg-dark text-white">
-  <div *ngIf="cart.length == 0; else elseBlock">you cart is empty</div>
+  <div *ngIf="isEmptyCart(); else elseBlock">you cart is empty</div>
   <ng-template #elseBlock>
     There is/are {{ getTotalQuantity() }} items in your cart for total price of {{ getTotalAmount() }} UAH
     <div *ngFor="let curItem of cart; trackBy: trackByItems">

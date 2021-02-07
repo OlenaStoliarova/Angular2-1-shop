@@ -11,32 +11,64 @@ export class CartService {
   public cart$ = this.cart.asObservable();
 
   private cartItems: Map<number, CartItem> = new Map();
+  private totalQuantity: number;
+  private totalSum: number;
 
   constructor() { }
+
+  getProducts(): Array<CartItem> {
+    return Array.from(this.cartItems.values());
+  }
 
   addItem(item: CartItem): void {
     console.log(this.cartItems);
     if(this.cartItems.has(item.id)) {
         const existingItem = this.cartItems.get(item.id);
-        existingItem.count++;
+        if(isNaN(item.count)) {
+          existingItem.count++;
+        } else {
+          existingItem.count += item.count;
+        }       
     } else {
         this.cartItems.set(item.id, item);
     }
     this.pushNewCartStateToSubscribers();
   }
-
-  incrementItem(itemId: number): void {
-    if(this.cartItems.has(itemId)) {
-      const existingItem = this.cartItems.get(itemId);
-      existingItem.count++;
-    }
+  
+  removeItem(itemId: number): void {
+    this.cartItems.delete(itemId);
     this.pushNewCartStateToSubscribers();
   }
 
-  decrementItem(itemId: number): void {
+  incrementQuantity(itemId: number): void {
+    this.changeQuantity(itemId, 1);
+  }
+
+  decrementQuantity(itemId: number): void {
+    this.changeQuantity(itemId, -1);
+  }
+
+  removeAllProducts() {
+    this.cartItems.clear();
+    this.pushNewCartStateToSubscribers();
+  }
+
+  isEmptyCart(): boolean {
+    return this.cartItems.size === 0;
+  }
+
+  getTotalQuantity(): number {
+    return this.totalQuantity;
+  }
+
+  getTotalSum(): number {
+    return this.totalSum;
+  }
+
+  private changeQuantity(itemId: number, changeQuantityOn: number) {
     if(this.cartItems.has(itemId)) {
       const existingItem = this.cartItems.get(itemId);
-      existingItem.count--;
+      existingItem.count += changeQuantityOn;
       if(existingItem.count < 1) {
         this.cartItems.delete(itemId);
       }
@@ -44,24 +76,19 @@ export class CartService {
     this.pushNewCartStateToSubscribers();
   }
 
-  removeItem(itemId: number): void {
-    this.cartItems.delete(itemId);
-    this.pushNewCartStateToSubscribers();
-  }
-
-  getTotalQuantity(): number {
-    let totalCount = 0;
-    Array.from(this.cartItems.values()).forEach(value => totalCount += value.count);
-    return totalCount;
-  }
-
-  getTotalAmount(): number {
-    let total = 0;
-    Array.from(this.cartItems.values()).forEach(value => total += value.count * value.price);
-    return total;
+  private updateCartData() {
+    let totalQuantity = 0;
+    let totalSum = 0;
+    Array.from(this.cartItems.values()).forEach(value => {
+      totalQuantity += value.count;
+      totalSum += value.count * value.price;
+    });
+    this.totalQuantity = totalQuantity;
+    this.totalSum = totalSum;
   }
 
   private pushNewCartStateToSubscribers() {
+    this.updateCartData();
     this.cart.next(Array.from(this.cartItems.values()));
   }
 

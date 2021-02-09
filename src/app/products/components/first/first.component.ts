@@ -26,12 +26,13 @@ export class FirstComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.configOptionsService.setOrUpdateConfig({id: "1", login: "login1"});
+    this.configOptionsService.setOrUpdateConfig({id: '1', login: 'login1'});
     console.log(this.configOptionsService.getConfig());
-    this.configOptionsService.setOrUpdateConfig({email: "a@b.ua", id: "2"});
+    this.configOptionsService.setOrUpdateConfig({email: 'a@b.ua', id: '2'});
     console.log(this.configOptionsService.getConfig());
 
-    this.localStorageService.set("test", "1");
-    console.log(this.localStorageService.get("test"));
+    this.localStorageService.set('test', '1');
+    console.log(this.localStorageService.get('test'));
   }
 }
+// linter

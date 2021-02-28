@@ -22,19 +22,19 @@ export class CartService {
 
   addItem(item: CartItem): void {
     console.log(this.cartItems);
-    if(this.cartItems.has(item.id)) {
+    if (this.cartItems.has(item.id)) {
         const existingItem = this.cartItems.get(item.id);
-        if(isNaN(item.count)) {
+        if (isNaN(item.count)) {
           existingItem.count++;
         } else {
           existingItem.count += item.count;
-        }       
+        }
     } else {
         this.cartItems.set(item.id, item);
     }
     this.pushNewCartStateToSubscribers();
   }
-  
+
   removeItem(itemId: number): void {
     this.cartItems.delete(itemId);
     this.pushNewCartStateToSubscribers();
@@ -66,10 +66,10 @@ export class CartService {
   }
 
   private changeQuantity(itemId: number, changeQuantityOn: number) {
-    if(this.cartItems.has(itemId)) {
+    if (this.cartItems.has(itemId)) {
       const existingItem = this.cartItems.get(itemId);
       existingItem.count += changeQuantityOn;
-      if(existingItem.count < 1) {
+      if (existingItem.count < 1) {
         this.cartItems.delete(itemId);
       }
     }
@@ -93,3 +93,4 @@ export class CartService {
   }
 
 }
+// linter

@@ -6,11 +6,12 @@ export class ConfigModel {
   email: string;
 }
 
-export interface ConfigUpdate {
-  id?: string;
-  login?: string;
-  email?: string;
-}
+// ConfigUpdate === Partial<ConfigModel>
+// export interface ConfigUpdate {
+//   id?: string;
+//   login?: string;
+//   email?: string;
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ConfigOptionsService {
 
   constructor() { }
 
-  setOrUpdateConfig(configUpdate: ConfigUpdate): void {
+  setOrUpdateConfig(configUpdate: Partial<ConfigModel>): void {
     this.configModel = {
         ...this.configModel,
         ...configUpdate

@@ -1,4 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import { InjectionToken } from '@angular/core';
 
 export interface Constants {
     app: string;
@@ -7,9 +7,10 @@ export interface Constants {
   }
 
 export const CONSTANTS: Constants = {
-    app: "BirdsShop", 
-    ver: "1.0", 
-    API_URL: "http://..."
+    app: 'BirdsShop',
+    ver: '1.0',
+    API_URL: 'http://...'
 };
 
 export const ConstantsService = new InjectionToken<Constants>('ConstantsService token');
+// linter

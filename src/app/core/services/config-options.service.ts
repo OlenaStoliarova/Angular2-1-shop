@@ -25,7 +25,7 @@ export class ConfigOptionsService {
     this.configModel = {
         ...this.configModel,
         ...configUpdate
-    }
+    };
   }
 
   getConfig(): ConfigModel {

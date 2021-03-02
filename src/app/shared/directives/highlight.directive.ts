@@ -5,7 +5,7 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 })
 export class HighlightDirective {
 
-  @HostBinding('style.backgroundColor') 
+  @HostBinding('style.backgroundColor')
   bgColor: string;
 
   private oldBgColor: string;

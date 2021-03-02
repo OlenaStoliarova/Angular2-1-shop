@@ -13,12 +13,11 @@ export class ZoomDirective {
 
   @HostListener('click')
   onClick() {
-    if(this.toggle) {
+    if (this.toggle) {
       this.render.setStyle(this.hostElement.nativeElement, 'font-size', this.fontSize);
     } else {
       this.render.setStyle(this.hostElement.nativeElement, 'font-size', 'medium');
     }
     this.toggle = !this.toggle;
   }
-  
 }

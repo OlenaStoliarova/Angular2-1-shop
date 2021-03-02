@@ -11,15 +11,15 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     CommonModule
   ],
   declarations: [
-    HighlightDirective, 
-    ZoomDirective, 
+    HighlightDirective,
+    ZoomDirective,
     OrderByPipe
   ],
   exports: [
-    CommonModule, 
+    CommonModule,
     FormsModule,
-    HighlightDirective, 
-    ZoomDirective, 
+    HighlightDirective,
+    ZoomDirective,
     OrderByPipe
   ]
 })

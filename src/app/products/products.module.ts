@@ -5,12 +5,14 @@ import { ProductComponent } from './components/product/product.component';
 import { FirstComponent } from './components/first/first.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsRoutingModule } from './products-routing.module';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductComponent,
-    FirstComponent
+    FirstComponent,
+    ProductViewComponent
   ],
   imports: [
     SharedModule,

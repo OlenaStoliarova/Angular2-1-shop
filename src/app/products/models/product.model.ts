@@ -9,6 +9,7 @@ export class Product {
     public description: string,
     public price: number = 0,
     public category: ProductCategory,
-    public isAvailable: boolean = false
+    public isAvailable: boolean = false,
+    public imageUrl: string
   ) {}
 }

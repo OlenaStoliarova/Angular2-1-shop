@@ -1,0 +1,47 @@
+<div class="card" *ngIf="product">
+  <div class="card-header">
+    <button class="btn btn-outline-secondary"
+                [routerLink]="['/product-list']">
+         &lt; Back
+    </button>
+    <b>{{ product.name }}</b>
+    <sup *ngIf="!product.isAvailable" class="bg-danger">not available</sup>
+  </div>
+
+  <div class="card-body">
+    <div class="row">      
+        <div class='col-md-4'>
+          <img class='center-block img-responsive'
+               [style.width.px]='140'               
+               [src]='product.imageUrl'
+               [title]='product.name'>
+        </div>
+        <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4">Name:</div>
+          <div class="col-md-8">{{ product.name }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">Description:</div>
+          <div class="col-md-8">{{ product.description }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">Price:</div>
+          <div class="col-md-8">
+            {{ product.price | currency:'UAH':'':'1.2-2':'uk-UA'}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8">
+          <button [class]="product.isAvailable ? 'btn btn-primary' : 'btn btn-secondary'"
+                  [disabled]="product.isAvailable ? null : 'disabled'"
+                  (click)="onBuy()">
+            Buy
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

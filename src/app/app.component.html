@@ -3,7 +3,24 @@
   <img class="img-responsive" src="assets/images/top.jpg">
   <h1  #appTitle></h1>
 </div>
-<app-cart-list></app-cart-list>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <span class="navbar-brand">Happy Birds</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/product-list">Products</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/cart">Cart</a>
+        </li>        
+      </ul>
+    </div>
+  </div>
+</nav>
 <router-outlet></router-outlet>
 
 <app-first></app-first>

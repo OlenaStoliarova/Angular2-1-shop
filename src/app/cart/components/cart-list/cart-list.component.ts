@@ -21,8 +21,10 @@ export class CartListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscriptionOnCartServiceChannel = this.cartService.cart$.subscribe(
-      data => this.cart = data);
+    this.cart = this.cartService.getProducts();
+    this.subscriptionOnCartServiceChannel = this.cartService.cart$.subscribe(data => {
+      this.cart = data;
+    });
   }
 
   ngOnDestroy() {

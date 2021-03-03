@@ -1,0 +1,7 @@
+<div align="center" class="container w-50 bg-dark text-white">
+  <div *ngIf="cartService.isEmptyCart(); else elseBlock">you cart is empty</div>
+  <ng-template #elseBlock>
+    There is/are {{ cartService.getTotalQuantity() }} items in your cart for total price of
+    <span appZoom="200%">{{ cartService.getTotalSum() | currency:'UAH':'':'1.2-2':'uk-UA' }}</span> UAH
+  </ng-template>
+</div>

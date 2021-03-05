@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 import { registerLocaleData } from '@angular/common';
 import localeUa from '@angular/common/locales/uk';
 import { SharedModule } from './shared/shared.module';
+import { OrdersModule } from './orders/orders.module';
 
 registerLocaleData(localeUa, 'uk-UA');
 
@@ -24,6 +25,7 @@ registerLocaleData(localeUa, 'uk-UA');
     ProductsModule,
     CartModule,
     CoreModule,
+    OrdersModule,
     // MUST BE LAST
     AppRoutingModule
   ],

@@ -1,0 +1,27 @@
+<div class="container-fluid card">
+  <div class="row card-header">
+    <h5 class="col-1">id</h5>
+    <h5 class="col-2">Product</h5>
+    <h5 class="col-2">Description</h5>
+    <h5 class="col-2">Category</h5>
+    <h5 class="col-1">Price</h5>
+    <h5 class="col-1">Is available</h5>
+    <h5 class="col-2">Image</h5>
+    <h5 class="col-1"></h5>
+  </div>
+  <div class="card-body" *ngFor="let product of productsService.getProducts() | async">
+    <div class="row">
+      <div class="col-1">{{product.id}}</div>
+      <div class="col-2">{{product.name}}</div>
+      <div class="col-2">{{product.description}}</div>
+      <div class="col-2">{{product.category | uppercase }}</div>
+      <div class="col-1">{{product.price | currency:'UAH':'':'1.2-2':'uk-UA' }}</div>
+      <div class="col-1">{{product.isAvailable}}</div>
+      <div class="col-2">{{product.imageUrl}}</div>
+      <div class="col-1">
+        <button class="btn btn-primary" 
+                [routerLink]="['edit', product.id]">Edit</button>
+      </div>
+    </div>
+  </div>  
+</div>

@@ -1,0 +1,10 @@
+<h2>LOGIN</h2>
+<p>
+  <button class="btn btn-primary" (click)="onLogout()"  *ngIf="authService.isLoggedIn; else loginBtn">Logout</button>
+
+  <ng-template #loginBtn>
+    <button class="btn btn-primary" (click)="onLogin()" >Login as User</button>
+    <br/><br/>
+    <button class="btn btn-primary" (click)="onLogin(true)" >Login as Admin</button>
+  </ng-template>
+</p>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import localeUa from '@angular/common/locales/uk';
 import { SharedModule } from './shared/shared.module';
 import { OrdersModule } from './orders/orders.module';
+import { TimingInterceptor } from './core/interceptors/timing.interceptor';
 
 registerLocaleData(localeUa, 'uk-UA');
 
@@ -31,7 +32,13 @@ registerLocaleData(localeUa, 'uk-UA');
     // MUST BE LAST
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TimingInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

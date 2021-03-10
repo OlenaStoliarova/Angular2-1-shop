@@ -1,0 +1,85 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Cage No.2",
+      "description": "40x50x65",
+      "price": 3500,
+      "category": "CAGES",
+      "isAvailable": true,
+      "imageUrl": "/assets/images/products/cage-2.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sepia Shell",
+      "description": "Big sepia shell",
+      "price": 80,
+      "category": "FOOD",
+      "isAvailable": false,
+      "imageUrl": "/assets/images/products/sepia1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Sepia Shell (2pcs)",
+      "description": "Pack of 2 normal size sepia shells'",
+      "price": 120,
+      "category": "FOOD",
+      "isAvailable": true,
+      "imageUrl": "/assets/images/products/sepia2.png"
+    },
+    {
+      "id": 4,
+      "name": "Ladder",
+      "description": "30 cm",
+      "price": 90,
+      "category": "TOYS",
+      "isAvailable": true,
+      "imageUrl": "/assets/images/products/ladder.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Water Bowl",
+      "description": "Stainless Steel",
+      "price": 50,
+      "category": "ACCESSORIES",
+      "isAvailable": false,
+      "imageUrl": "/assets/images/products/water-bowl.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customerName": "Ivan Petrov",
+      "customerPhone": "(044)123-45-67",
+      "total": 3500,
+      "items": [
+        {
+          "id": 1,
+          "name": "Cage No.2",
+          "price": 3500,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "customerName": "Vasilisa Prekrasnaya",
+      "customerPhone": "(050)555-15-05",
+      "total": 410,
+      "items": [
+        {
+          "id": 5,
+          "name": "Water Bowl",
+          "price": 50,
+          "count": 1
+        },
+        {
+          "id": 3,
+          "name": "Sepia Shell (2pcs)",
+          "price": 120,
+          "count": 3
+        }
+      ]
+    }
+  ]
+}

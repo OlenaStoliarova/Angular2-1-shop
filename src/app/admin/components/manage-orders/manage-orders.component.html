@@ -1,3 +1,22 @@
-<p>
-  manage-orders works!
-</p>
+<div class="container-fluid card">
+  <div class="row card-header">
+    <h5 class="col-1">id</h5>
+    <h5 class="col-2">Customer name</h5>
+    <h5 class="col-2">Customer phone</h5>
+    <h5 class="col-2">Total</h5>
+    <h5 class="col-5"></h5>
+  </div>
+  <div class="card-body" *ngFor="let order of orders | async">
+    <div class="row">
+      <div class="col-1">{{order.id}}</div>
+      <div class="col-2">{{order.customerName}}</div>
+      <div class="col-2">{{order.customerPhone}}</div>
+      <div class="col-2">{{order.total | currency:'UAH':'':'1.2-2':'uk-UA' }}</div>
+      <div class="col-5">
+        <p *ngFor="let item of order.items">
+          {{item.name}} - {{item.price | currency:'UAH':'':'1.2-2':'uk-UA'}} - {{item.count}}
+        </p>        
+      </div>
+    </div>
+  </div>
+</div>

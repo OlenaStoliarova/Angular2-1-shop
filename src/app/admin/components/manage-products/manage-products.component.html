@@ -9,7 +9,7 @@
     <h5 class="col-2">Image</h5>
     <h5 class="col-1"></h5>
   </div>
-  <div class="card-body" *ngFor="let product of productsService.getProducts() | async">
+  <div class="card-body" *ngFor="let product of products | async">
     <div class="row">
       <div class="col-1">{{product.id}}</div>
       <div class="col-2">{{product.name}}</div>

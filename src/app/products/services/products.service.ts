@@ -1,28 +1,48 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { retry, publish, refCount, catchError, share } from 'rxjs/operators';
 
 import { Product } from '../models/product.model';
-import { ProductCategory } from '../models/product-category.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  private products = [
-    new Product(1, 'Cage No.2', '40x50x65', 3500, ProductCategory.CAGES, true, '/assets/images/products/cage-2.jpg'),
-    new Product(2, 'Sepia Shell', 'Big sepia shell',  80,  ProductCategory.FOOD, false, '/assets/images/products/sepia1.jpg'),
-    new Product(3, 'Sepia Shell (2pcs)', 'Pack of 2 normal size sepia shells', 120, ProductCategory.FOOD, true, '/assets/images/products/sepia2.png'),
-    new Product(4, 'Ladder', '30 cm', 90, ProductCategory.TOYS,  true, '/assets/images/products/ladder.jpg'),
-    new Product(5, 'Water Bowl', 'Stainless Steel', 50, ProductCategory.ACCESSORIES,  false, '/assets/images/products/water-bowl.jpg')
-  ];
+  private productsUrl = 'http://localhost:3000/products';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-      return of(this.products);
+    return this.http.get<Product[]>(this.productsUrl).pipe(
+      retry(3),
+      publish(),
+      refCount(),
+      catchError(this.handleError)
+    );
   }
 
   getProduct(id: number): Observable<Product> {
-    return of(this.products.find(product => product.id === id));
+    const url = `${this.productsUrl}/${id}`;
+
+    return this.http.get<Product>(url)
+        .pipe(
+            retry(3),
+            share(), // = publish() + refCount()
+            catchError(this.handleError)
+          );
+  }
+
+  private handleError(err: HttpErrorResponse) {
+    // A client-side or network error occurred.
+    if (err.error instanceof Error) {
+      console.error('An error occurred:', err.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.error(`Backend returned code ${err.status}, body was: ${err.error}`);
+    }
+
+     return throwError('Something bad happened; please try again later.');
   }
 }

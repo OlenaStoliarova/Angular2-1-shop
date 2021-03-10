@@ -28,10 +28,7 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate  {
   }
 
   canDeactivate():
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+    | boolean | Promise<boolean> | Observable<boolean> {
     // Otherwise ask the user with the dialog service and return its
     // promise which resolves to true or false when the user decides
     return this.dialogService.confirm('Discard changes?');

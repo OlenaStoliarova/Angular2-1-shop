@@ -14,10 +14,7 @@ export class CanDeactivateGuard
   canDeactivate(
     component: CanComponentDeactivate
   ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+    | boolean | Promise<boolean> | Observable<boolean> {
     console.log('CanDeactivate Guard is called');
     return component.canDeactivate ? component.canDeactivate() : true;
   }

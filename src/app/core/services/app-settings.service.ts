@@ -23,6 +23,7 @@ export class AppSettingsService {
     // this.localStorage.clear();
     let appSettings = this.loadFromStorage();
     if (!appSettings) {
+      // это асинхронная операция, которая может завершиться после выполнения return of(appSettings)
         this.loadFromAssets().subscribe(
             (settings) => {
                 console.log('Setting: loadedFromAssets');

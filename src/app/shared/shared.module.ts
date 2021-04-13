@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './directives/highlight.directive';
 import { ZoomDirective } from './directives/zoom.directive';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { EmailDirective } from './validators';
 
 
 @NgModule({
@@ -13,14 +14,16 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   declarations: [
     HighlightDirective,
     ZoomDirective,
-    OrderByPipe
+    OrderByPipe,
+    EmailDirective
   ],
   exports: [
     CommonModule,
     FormsModule,
     HighlightDirective,
     ZoomDirective,
-    OrderByPipe
+    OrderByPipe,
+    EmailDirective
   ]
 })
 export class SharedModule { }

@@ -4,6 +4,7 @@ import { ForbiddenPageComponent } from './core/components/forbidden-page/forbidd
 import { LoginComponent } from './core/components/login/login.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { IsCartEmptyGuard } from './core/guards/is-cart-empty.guard';
+import { ConfirmedOrderComponent } from './orders/components/confirmed-order/confirmed-order.component';
 import { ProcessOrderComponent } from './orders/components/process-order/process-order.component';
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
       path: 'order',
       canActivate: [IsCartEmptyGuard],
       component: ProcessOrderComponent
+    },
+    {
+      path: 'order-confirmed',
+      component: ConfirmedOrderComponent
     },
     {
       path: 'login',
